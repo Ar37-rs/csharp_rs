@@ -82,7 +82,7 @@ pub fn vec_f64_to_string() -> String {
 }
 
 #[no_mangle]
-pub fn rs_entry_point<'a>(ptr: *mut c_char) -> *mut c_char {
+pub fn rs_entry_point(ptr: *mut c_char) -> *mut c_char {
     let dotnet_str = Strs::from_ptr(ptr).to_str();
     println!("{}, crate num_cpus got {} physical cpu/s in your machine.", dotnet_str, num_cpus::get());
     println!("here are some numbers form rust: ");
