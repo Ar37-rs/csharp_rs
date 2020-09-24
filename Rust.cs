@@ -7,9 +7,9 @@ namespace csharp_rs
     struct Rust
     {
         [DllImport("libcsharp_rs")]
-        static extern IntPtr rs_entry_point(IntPtr ptr);
+        internal static extern IntPtr rs_entry_point(IntPtr ptr);
 
-        public static string rsString(string csstring)
+        internal static string rsString(string csstring)
         {
             IntPtr rs_ptr = rs_entry_point(Marshal.StringToCoTaskMemUTF8(csstring));
             string rsstring = Marshal.PtrToStringUTF8(rs_ptr);
@@ -18,7 +18,7 @@ namespace csharp_rs
             return rsstring;
         }
 
-        public static List<double> listDouble(string rsstring) {
+        internal static List<double> listDouble(string rsstring) {
             List<double> list_double = new List<double>();
             foreach(string item in rsstring.Split(char.Parse("`")))
             {
