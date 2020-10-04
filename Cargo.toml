@@ -12,3 +12,10 @@ name = "libcsharp_rs"
 [dependencies]
 num_cpus = "1.13.0"
 ryu = "1.0.5"
+
+[profile.release]
+lto = true
+debug = false
+debug-assertions = false
+overflow-checks = false
+rpath = false
